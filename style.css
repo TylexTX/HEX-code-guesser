@@ -13,7 +13,6 @@ body {
 }
 
 #left, #right {
-    background-color: #ffffff;
     display: inline-block;
     width: 200px;
     height: 200px;

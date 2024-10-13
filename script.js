@@ -4,6 +4,9 @@ function restart() {
     const color10 = Math.round(Math.random() * 16777215);
     color16 = "#" + color10.toString(16);
     document.getElementById("left").style.backgroundColor = color16;
+    document.getElementById("right").style.backgroundColor = "#ffffff";
+    document.getElementById("input").value = "#";
+    document.getElementById("output").innerText = "";
 }
 
 function check() {
@@ -25,7 +28,11 @@ function check() {
         const acc = Math.floor((acc1 + acc2 + acc3) / 3);
 
         document.getElementById("right").style.backgroundColor = input;
-        document.getElementById("output").innerText = "Your accuracy is " + acc + "%, the correct color was " + color16.toUpperCase();
+        if (acc == 100) {
+            document.getElementById("output").innerText = "Your accuracy is " + acc;
+        } else {
+            document.getElementById("output").innerText = "Your accuracy is " + acc + "%, the correct color was " + color16.toUpperCase();
+        }
     } else {
         document.getElementById("output").innerText = "Input a valid HEX code";
     }
@@ -33,4 +40,10 @@ function check() {
 
 document.addEventListener("DOMContentLoaded", function() {
     restart();
+});
+
+document.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        check();
+    }
 });
